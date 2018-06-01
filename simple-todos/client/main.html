@@ -1,0 +1,63 @@
+ 
+<head>
+  <title>simple-todos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+
+  
+
+  <div class="container ">
+  {{> pageTitle}}
+  <div class="inner-container"> 
+    {{> formTitle}} 
+    <span><label class="hide-finished">
+      <input type="checkbox" checked="{{hideFinished}}">
+        Hide Finished Resolution
+    </label></span>
+    <div class="form">
+     <form class="form-inline new-resolution">
+      <div class="form-group">
+        <input type="text" class="form-control" id="title" name="title" placeholder="A new Resolution">
+      </div>
+      <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
+    </form>
+  </div>
+    <div class="result list-group" align="center"> 
+    <ul>
+      {{#each resolutions}}
+        {{> resolution}}
+      {{/each}}
+      
+    </ul>
+  </div>
+</div>
+  </div>
+</body>
+
+
+<template name="formTitle">
+  <h3> A New Resolution</h3>
+</template>
+<template name="pageTitle">
+  <h1> Welcome to My Resolution</h1>
+</template>
+<template name="resolution"> 
+
+  <li class="list-group-item list-group-item-action" >
+    <span class="checked" align="left"><input type="checkbox" checked="{{checked}}" class="toggle-checked"></span>
+    <span class= "text" align="center">{{title}}</span> 
+    <span class="remove" align="right"><button class="delete btn btn-danger">
+      Remove
+    </button></span>
+
+  </li>
+
+</template>
