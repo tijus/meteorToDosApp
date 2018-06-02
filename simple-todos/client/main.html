@@ -17,18 +17,21 @@
   <div class="container ">
   {{> pageTitle}}
   <div class="inner-container"> 
-    {{> formTitle}} 
+    <div align="right"> {{> loginButtons}} </div>
+    {{> formTitle}}
     <span><label class="hide-finished">
       <input type="checkbox" checked="{{hideFinished}}">
         Hide Finished Resolution
     </label></span>
     <div class="form">
+      {{#if currentUser}}
      <form class="form-inline new-resolution">
       <div class="form-group">
         <input type="text" class="form-control" id="title" name="title" placeholder="A new Resolution">
       </div>
       <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
     </form>
+    {{/if}}
   </div>
     <div class="result list-group" align="center"> 
     <ul>
@@ -39,7 +42,9 @@
     </ul>
   </div>
 </div>
+
   </div>
+
 </body>
 
 

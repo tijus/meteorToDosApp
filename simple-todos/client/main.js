@@ -49,3 +49,7 @@ Template.resolution.events({
 	}
 });
 
+Accounts.ui.config({
+	passwordSignupFields: "USERNAME_ONLY",
+});
+
