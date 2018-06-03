@@ -24,6 +24,7 @@
         Hide Finished Resolution
     </label></span>
     <div class="form">
+
       {{#if currentUser}}
      <form class="form-inline new-resolution">
       <div class="form-group">
@@ -57,11 +58,26 @@
 <template name="resolution"> 
 
   <li class="list-group-item list-group-item-action" >
+    {{#if isOwner}}
     <span class="checked" align="left"><input type="checkbox" checked="{{checked}}" class="toggle-checked"></span>
+    {{/if}}
     <span class= "text" align="center">{{title}}</span> 
+    <span class="private">
+        {{#if isOwner}}
+        <button class="btn btn-default toggle-private">
+          {{#if private}}
+            Public
+          {{else}}
+            Private
+          {{/if}}
+        </button>
+      {{/if}}
+    </span>
+    {{#if isOwner}}
     <span class="remove" align="right"><button class="delete btn btn-danger">
       Remove
     </button></span>
+    {{/if}}
 
   </li>
 

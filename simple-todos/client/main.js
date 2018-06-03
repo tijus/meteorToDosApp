@@ -39,6 +39,12 @@ Template.body.events({
 	}
 });
 
+Template.resolution.helpers({
+	isOwner: function(){
+		return this.owner == Meteor.userId();
+	}
+});
+
 Template.resolution.events({
 
 	'click .toggle-checked':function(){
@@ -46,6 +52,9 @@ Template.resolution.events({
 	},
 	'click .delete':function(){
 		Meteor.call("deleteResolutions", this._id);
+	},
+	'click .toggle-private':function(){
+		Meteor.call("setPrivate", this._id, !this.private);
 	}
 });
 
