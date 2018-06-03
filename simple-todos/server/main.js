@@ -10,6 +10,10 @@ Resolutions = new Mongo.Collection('resolutions');
   
 });
 
+
+Meteor.publish("resolutions", function(){
+	return Resolutions.find();
+})
 Meteor.methods({
 	addResolutions: function(title){
 		Resolutions.insert({
