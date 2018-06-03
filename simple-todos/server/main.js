@@ -9,3 +9,18 @@ Meteor.startup(() => {
 Resolutions = new Mongo.Collection('resolutions');
   
 });
+
+Meteor.methods({
+	addResolutions: function(title){
+		Resolutions.insert({
+			title: title,
+		});
+	}, 
+	deleteResolutions: function(id){
+		Resolutions.remove(id);
+	},
+	updateResolutions: function(id, checked)
+	{
+		Resolutions.update(id, {$set:{checked:checked}});
+	}
+});
